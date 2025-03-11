@@ -36,7 +36,10 @@ export default function PostCard({ post }) {
             <strong>Duration:</strong> {post.duration} minutes
           </p>
           <p className={styles.language}>
-            <strong>Language:</strong> {post.language}
+            <strong>Language:</strong>{" "}
+            {post.languages && post.languages.length > 0
+              ? post.languages.join(", ") // Convert array to comma-separated string
+              : "Not specified"}
           </p>
           <p className={styles.genre}>
             <strong>Genre:</strong> {post.genre}
