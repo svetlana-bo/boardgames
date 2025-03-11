@@ -15,7 +15,7 @@ export default function CreatePage() {
     if (response.ok) {
       const data = await response.json();
       console.log("New post created: ", data);
-      navigate("/imageupload2/");
+      navigate("/boardgames/");
     } else {
       console.log("Sorry, something went wrong");
     }

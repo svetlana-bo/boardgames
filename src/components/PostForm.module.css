@@ -62,6 +62,22 @@ textarea {
   border-radius: 500px;
 }
 
+.languageCheckboxes {
+  display: flex;
+  gap: 1em;
+  margin: 0.5em 0;
+}
+
+.languageCheckboxes label {
+  width: fit-content;
+}
+
+.languageCheckboxes label {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
 .imagePreview {
   width: calc(100% - 4px);
   max-width: 346px;

@@ -199,3 +199,12 @@ nav a.active {
   opacity: 0;
   transition: visibility 0s 0.4s, opacity 0.4s linear;
 }
+
+.btnDelete {
+  background-color: var(--green);
+  color: var(--text-color-light);
+  border: none;
+  border-radius: 500px;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}

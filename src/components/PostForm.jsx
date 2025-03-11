@@ -12,7 +12,7 @@ export default function PostForm({ savePost, post }) {
   const [max_players, setMaxPlayers] = useState("");
   const [age, setAge] = useState("");
   const [duration, setDuration] = useState("");
-  const [language, setLanguage] = useState("");
+  const [languages, setLanguages] = useState([]); // Array to store multiple languages
   const [genre, setGenre] = useState("");
 
   const [locationVestergade, setLocationVestergade] = useState("");
@@ -35,7 +35,7 @@ export default function PostForm({ savePost, post }) {
       setMaxPlayers(post.max_players);
       setAge(post.age);
       setDuration(post.duration);
-      setLanguage(post.language);
+      setLanguages(post.languages || []); // Initialize languages as an array
       setGenre(post.genre);
       setLocationVestergade(post.locationVestergade);
       setLocationFredensgade(post.locationFredensgade);
@@ -44,6 +44,16 @@ export default function PostForm({ savePost, post }) {
       setLocationKolding(post.locationKolding);
     }
   }, [post]); // useEffect is called every time post changes.
+
+  // Handle language selection
+  const handleLanguageChange = (e) => {
+    const { value, checked } = e.target;
+    if (checked) {
+      setLanguages([...languages, value]); // Add language to the array
+    } else {
+      setLanguages(languages.filter((lang) => lang !== value)); // Remove language from the array
+    }
+  };
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -58,7 +68,7 @@ export default function PostForm({ savePost, post }) {
       max_players: max_players,
       age: age,
       duration: duration,
-      language: language,
+      languages: languages, // Store multiple languages as an array
       genre: genre,
       locationVestergade: locationVestergade,
       locationFredensgade: locationFredensgade,
@@ -86,7 +96,7 @@ export default function PostForm({ savePost, post }) {
           placeholder="Type a title"
           onChange={(e) => setTitle(e.target.value)}
           className={styles.input}
-          maxlength="100"
+          maxLength="100"
         />
       </label>
       <label>
@@ -167,13 +177,28 @@ export default function PostForm({ savePost, post }) {
       </label>
 
       <label>
-        Game language
+        Game languages
         <br />
-        <select value={language} onChange={(e) => setLanguage(e.target.value)}>
-          <option value="">Select language</option>
-          <option value="english">English</option>
-          <option value="danish">Danish</option>
-        </select>
+        <div className={styles.languageCheckboxes}>
+          <label>
+            <input
+              type="checkbox"
+              value="english"
+              checked={languages.includes("english")}
+              onChange={handleLanguageChange}
+            />{" "}
+            English
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              value="danish"
+              checked={languages.includes("danish")}
+              onChange={handleLanguageChange}
+            />{" "}
+            Danish
+          </label>
+        </div>
       </label>
 
       <label>

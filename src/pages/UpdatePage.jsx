@@ -26,7 +26,7 @@ export default function UpdatePage() {
     if (response.ok) {
       const data = await response.json();
       console.log("Post updated: ", data);
-      navigate("/imageupload2/");
+      navigate("/boardgames/");
     } else {
       console.log("Sorry, something went wrong");
     }
@@ -42,7 +42,7 @@ export default function UpdatePage() {
       });
       if (response.ok) {
         console.log("Post deleted");
-        navigate("/imageupload2/");
+        navigate("/boardgames/");
       } else {
         console.log("Sorry, something went wrong");
       }
