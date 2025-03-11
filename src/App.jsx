@@ -5,32 +5,28 @@ import UpdatePage from "./pages/UpdatePage";
 import Layout from "./Layout";
 
 const router = createBrowserRouter([
-    {
-        path: "/imageupload2/",
-        element: <Layout />,
-        children: [
-            {
-                index: true,
-                element: <HomePage />,
-            },
-            {
-                path: "create",
-                element: <CreatePage />,
-            },
-            {
-                path: "posts/:postId",
-                element: <UpdatePage />,
-            },
-        ],
-    },
+  {
+    path: "/boardgames/",
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
+      {
+        path: "create",
+        element: <CreatePage />,
+      },
+      {
+        path: "posts/:postId",
+        element: <UpdatePage />,
+      },
+    ],
+  },
 ]);
 
 function App() {
-    return (
-        <RouterProvider router={router} />
-    );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
-
-
