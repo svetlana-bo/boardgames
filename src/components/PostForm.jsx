@@ -1,15 +1,19 @@
 import { useEffect, useState } from "react";
 import imgPlaceholder from "../assets/img/img-placeholder.jpg";
+import styles from "./PostForm.module.css";
 
 export default function PostForm({ savePost, post }) {
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [imageFile, setImageFile] = useState("");
+  const [videoFile, setVideoFile] = useState("");
   const [difficulty, setDifficulty] = useState("");
   const [min_players, setMinPlayers] = useState("");
   const [max_players, setMaxPlayers] = useState("");
   const [age, setAge] = useState("");
   const [duration, setDuration] = useState("");
+  const [language, setLanguage] = useState("");
+  const [genre, setGenre] = useState("");
 
   const [locationVestergade, setLocationVestergade] = useState("");
   const [locationFredensgade, setLocationFredensgade] = useState("");
@@ -26,10 +30,13 @@ export default function PostForm({ savePost, post }) {
       setBody(post.body);
       setDifficulty(post.difficulty);
       setImageFile(post.image);
+      setVideoFile(post.video);
       setMinPlayers(post.min_players);
       setMaxPlayers(post.max_players);
       setAge(post.age);
       setDuration(post.duration);
+      setLanguage(post.language);
+      setGenre(post.genre);
       setLocationVestergade(post.locationVestergade);
       setLocationFredensgade(post.locationFredensgade);
       setLocationFredensgade(post.locationFredensgade);
@@ -44,12 +51,15 @@ export default function PostForm({ savePost, post }) {
       // create a new object to store the value from states / input fields
       title: title,
       image: imageFile,
+      video: videoFile,
       body: body,
       difficulty: difficulty,
       min_players: min_players,
       max_players: max_players,
       age: age,
       duration: duration,
+      language: language,
+      genre: genre,
       locationVestergade: locationVestergade,
       locationFredensgade: locationFredensgade,
       locationAalborg: locationAalborg,
@@ -75,8 +85,8 @@ export default function PostForm({ savePost, post }) {
           value={title}
           placeholder="Type a title"
           onChange={(e) => setTitle(e.target.value)}
-          className="input"
-          maxlength="2"
+          className={styles.input}
+          maxlength="100"
         />
       </label>
       <label>
@@ -91,8 +101,23 @@ export default function PostForm({ savePost, post }) {
           <option value="hard">Hard</option>
         </select>
       </label>
+      <label>
+        Genre
+        <select value={genre} onChange={(e) => setGenre(e.target.value)}>
+          <option value="">Select genre</option>
+          <option value="deck-building">Deck-building</option>
+          <option value="strategy">Strategy</option>
+          <option value="family">Family</option>
+          <option value="party">Party</option>
+          <option value="thematic">Thematic</option>
+          <option value="abstract">Abstract</option>
+          <option value="cooperation">Cooperation</option>
+          <option value="card">Card</option>
+          <option value="team">Team</option>
+        </select>
+      </label>
       <h4> Number of Players</h4>
-      <div className="players">
+      <div className={styles.players}>
         <label>
           From
           <input
@@ -100,7 +125,7 @@ export default function PostForm({ savePost, post }) {
             type="number"
             onChange={(e) => setMinPlayers(e.target.value)}
             placeholder="Minimum"
-            className="input-small"
+            className={styles.inputSmall}
             min="1"
           />
         </label>
@@ -111,7 +136,7 @@ export default function PostForm({ savePost, post }) {
             type="number"
             onChange={(e) => setMaxPlayers(e.target.value)}
             placeholder="Maximum"
-            className="input-small"
+            className={styles.inputSmall}
             max="20"
           />
         </label>
@@ -124,7 +149,7 @@ export default function PostForm({ savePost, post }) {
           value={age}
           placeholder="Type a body text"
           onChange={(e) => setAge(e.target.value)}
-          className="input"
+          className={styles.input}
           max="99"
         />
       </label>
@@ -136,9 +161,19 @@ export default function PostForm({ savePost, post }) {
           value={duration}
           placeholder="Type a body text"
           onChange={(e) => setDuration(e.target.value)}
-          className="input"
+          className={styles.input}
           max="999"
         />
+      </label>
+
+      <label>
+        Game language
+        <br />
+        <select value={language} onChange={(e) => setLanguage(e.target.value)}>
+          <option value="">Select language</option>
+          <option value="english">English</option>
+          <option value="danish">Danish</option>
+        </select>
       </label>
 
       <label>
@@ -147,7 +182,8 @@ export default function PostForm({ savePost, post }) {
           value={body}
           placeholder="Type a body text"
           onChange={(e) => setBody(e.target.value)}
-          className="input"
+          className={styles.input}
+          rows={6}
         />
       </label>
 
@@ -157,17 +193,26 @@ export default function PostForm({ savePost, post }) {
           type="text"
           value={imageFile}
           onChange={(e) => setImageFile(e.target.value)}
-          className="input"
+          className={styles.input}
         />
         <img
-          className="image-preview"
+          className={styles.imagePreview}
           src={imageFile}
           alt="Choose"
           onError={(event) => (event.target.src = imgPlaceholder)}
         />
       </label>
+      <label>
+        Video tutorial URL
+        <input
+          type="text"
+          value={videoFile}
+          onChange={(e) => setVideoFile(e.target.value)}
+          className={styles.input}
+        />
+      </label>
       <h4>Location on shelves:</h4>
-      <div className="location-container">
+      <div className={styles.locationContainer}>
         <label>
           In Vestergade
           <input
@@ -175,7 +220,8 @@ export default function PostForm({ savePost, post }) {
             value={locationVestergade}
             placeholder="Shelf index"
             onChange={(e) => setLocationVestergade(e.target.value)}
-            className="input-small"
+            className={styles.inputSmall}
+            maxLength="4"
           />
         </label>
         <label>
@@ -185,7 +231,8 @@ export default function PostForm({ savePost, post }) {
             value={locationFredensgade}
             placeholder="Shelf index"
             onChange={(e) => setLocationFredensgade(e.target.value)}
-            className="input-small"
+            className={styles.inputSmall}
+            maxLength="4"
           />
         </label>
         <label>
@@ -195,7 +242,8 @@ export default function PostForm({ savePost, post }) {
             value={locationAalborg}
             placeholder="Shelf index"
             onChange={(e) => setLocationAalborg(e.target.value)}
-            className="input-small"
+            className={styles.inputSmall}
+            maxLength="4"
           />
         </label>
         <label>
@@ -205,11 +253,12 @@ export default function PostForm({ savePost, post }) {
             value={locationKolding}
             placeholder="Shelf index"
             onChange={(e) => setLocationKolding(e.target.value)}
-            className="input-small"
+            className={styles.inputSmall}
+            maxLength="4"
           />
         </label>
       </div>
-      <p className="text-error">{errorMessage}</p>
+      <p className={styles.textError}>{errorMessage}</p>
       <button type="submit">Save</button>
     </form>
   );
