@@ -14,7 +14,7 @@ export default function PostForm({ savePost, post }) {
   const [duration, setDuration] = useState("");
   const [languages, setLanguages] = useState([]); // Array to store multiple languages
   const [genre, setGenre] = useState("");
-
+  const [isVisible, setIsVisible] = useState(true);
   const [locationVestergade, setLocationVestergade] = useState("");
   const [locationFredensgade, setLocationFredensgade] = useState("");
   const [locationAalborg, setLocationAalborg] = useState("");
@@ -34,6 +34,7 @@ export default function PostForm({ savePost, post }) {
       setMinPlayers(post.min_players);
       setMaxPlayers(post.max_players);
       setAge(post.age);
+      setIsVisible(post.isVisible ?? true);
       setDuration(post.duration);
       setLanguages(post.languages || []); // Initialize languages as an array
       setGenre(post.genre);
@@ -69,6 +70,7 @@ export default function PostForm({ savePost, post }) {
       age: age,
       duration: duration,
       languages: languages, // Store multiple languages as an array
+      isVisible: isVisible,
       genre: genre,
       locationVestergade: locationVestergade,
       locationFredensgade: locationFredensgade,
@@ -99,6 +101,19 @@ export default function PostForm({ savePost, post }) {
           className={styles.input}
           maxLength="100"
         />
+      </label>
+
+      <label className={styles.toggleContainer}>
+        <h4>Visible to Customers</h4>
+        <div className={styles.toggleWrapper}>
+          <input
+            type="checkbox"
+            checked={isVisible}
+            onChange={(e) => setIsVisible(e.target.checked)}
+            className={styles.toggle}
+          />
+          <span className={styles.toggleSlider}></span>
+        </div>
       </label>
       <label>
         <h4>Difficulty level</h4>
@@ -178,25 +193,29 @@ export default function PostForm({ savePost, post }) {
       </label>
 
       <label>
-        <h4> Game languages</h4>
-        <br />
+        <h4>Game Languages</h4>
         <div className={styles.languageCheckboxes}>
-          <label>
+          <label className={styles.toggleContainer}>
             <input
               type="checkbox"
               value="english"
               checked={languages.includes("english")}
               onChange={handleLanguageChange}
-            />{" "}
+              className={styles.toggle}
+            />
+            <span className={styles.toggleSlider}></span>
             English
           </label>
-          <label>
+
+          <label className={styles.toggleContainer}>
             <input
               type="checkbox"
               value="danish"
               checked={languages.includes("danish")}
               onChange={handleLanguageChange}
-            />{" "}
+              className={styles.toggle}
+            />
+            <span className={styles.toggleSlider}></span>
             Danish
           </label>
         </div>
