@@ -76,7 +76,8 @@ export default function PostForm({ savePost, post }) {
       locationKolding: locationKolding,
     };
 
-    const validForm = formData.title && formData.body && formData.image; // will return false if one of the properties doesn't have a value
+    // will return false if one of the properties doesn't have a value
+    const validForm = formData.title && formData.body && formData.image;
     if (validForm) {
       // if all fields/ properties are filled, then call savePost
       savePost(formData);
