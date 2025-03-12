@@ -69,6 +69,10 @@ a {
   text-transform: uppercase;
 }
 
+strong {
+  font-weight: 600;
+}
+
 /* ---------- animations ---------- */
 /* fade in */
 @keyframes fadeIn {
@@ -139,21 +143,23 @@ nav a.active {
 
 .search-bar {
   flex: 2;
-  padding: 0.5em;
+  padding: 0.75rem 0.5rem;
   border: 2px solid var(--green);
   border-radius: 500px;
   font-family: "Poppins", sans-serif;
+  height: fit-content;
 }
 
 .filter-dropdown {
   flex: 1;
-  padding: 0.5em;
+  padding: 0.75rem 0.5rem;
   border: 2px solid var(--green);
   border-radius: 500px;
   font-family: "Poppins", sans-serif;
   background-color: var(--white);
   color: var(--text-color-dark);
   cursor: pointer;
+  margin: 0;
 }
 
 .flex-container {
