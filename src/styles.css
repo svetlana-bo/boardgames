@@ -206,11 +206,28 @@ nav a.active {
   transition: visibility 0s 0.4s, opacity 0.4s linear;
 }
 
+.delete-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 1em 0;
+}
+
 .btnDelete {
+  background-color: transparent;
+  color: var(--text-color-dark);
+  border: 2px solid var(--green);
+  border-radius: 500px;
+  padding: 12px 15px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+
+.btnDelete:hover {
+  transition: 0.3s;
   background-color: var(--green);
   color: var(--text-color-light);
-  border: none;
-  border-radius: 500px;
-  padding: 0.5em 1em;
-  cursor: pointer;
+  border: 2px solid var(--green);
 }

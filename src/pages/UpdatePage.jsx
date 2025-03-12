@@ -53,9 +53,11 @@ export default function UpdatePage() {
     <section className="page">
       <h1>Update Board Game Entry</h1>
       <PostForm post={post} savePost={updatePost} />
-      <button className="btnDelete" onClick={deletePost}>
-        Delete Entry
-      </button>
+      <div className="delete-container">
+        <button className="btnDelete" onClick={deletePost}>
+          Delete Entry
+        </button>
+      </div>
     </section>
   );
 }
