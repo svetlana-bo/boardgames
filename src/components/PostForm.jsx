@@ -90,7 +90,7 @@ export default function PostForm({ savePost, post }) {
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        Board Game Name
+        <h4> Board Game Name </h4>
         <input
           type="text"
           value={title}
@@ -101,7 +101,7 @@ export default function PostForm({ savePost, post }) {
         />
       </label>
       <label>
-        Difficulty level <br />
+        <h4>Difficulty level</h4>
         <select
           value={difficulty}
           onChange={(e) => setDifficulty(e.target.value)}
@@ -113,7 +113,7 @@ export default function PostForm({ savePost, post }) {
         </select>
       </label>
       <label>
-        Genre
+        <h4>Genre</h4>
         <select value={genre} onChange={(e) => setGenre(e.target.value)}>
           <option value="">Select genre</option>
           <option value="deck-building">Deck-building</option>
@@ -154,7 +154,7 @@ export default function PostForm({ savePost, post }) {
       </div>
 
       <label>
-        Mininimum age
+        <h4>Mininimum age</h4>
         <input
           type="number"
           value={age}
@@ -166,7 +166,7 @@ export default function PostForm({ savePost, post }) {
       </label>
 
       <label>
-        Avegare game duration
+        <h4>Avegare game duration</h4>
         <input
           type="number"
           value={duration}
@@ -178,7 +178,7 @@ export default function PostForm({ savePost, post }) {
       </label>
 
       <label>
-        Game languages
+        <h4> Game languages</h4>
         <br />
         <div className={styles.languageCheckboxes}>
           <label>
@@ -203,7 +203,7 @@ export default function PostForm({ savePost, post }) {
       </label>
 
       <label>
-        Description
+        <h4> Description</h4>
         <textarea
           value={body}
           placeholder="Type a body text"
@@ -214,7 +214,7 @@ export default function PostForm({ savePost, post }) {
       </label>
 
       <label>
-        Image URL
+        <h4> Image URL</h4>
         <input
           type="text"
           value={imageFile}
@@ -229,7 +229,7 @@ export default function PostForm({ savePost, post }) {
         />
       </label>
       <label>
-        Video tutorial URL
+        <h4> Video tutorial URL</h4>
         <input
           type="text"
           value={videoFile}

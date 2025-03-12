@@ -26,6 +26,7 @@ form button {
 
 label {
   width: 100%;
+  height: fit-content;
 }
 
 .input:not(textarea),
@@ -109,11 +110,6 @@ textarea {
 
 .textError:first-letter {
   text-transform: uppercase;
-}
-
-.form h4 {
-  margin: 1.5em 0 0.5em;
-  font-weight: 500;
 }
 
 .locationContainer label,

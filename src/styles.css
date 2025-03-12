@@ -48,6 +48,12 @@ h3 {
   letter-spacing: 0.1px;
 }
 
+h4 {
+  font-weight: 600;
+  letter-spacing: 0.1px;
+  margin: 0.5em 0 0;
+}
+
 a {
   color: var(--green);
 }
