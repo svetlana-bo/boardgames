@@ -1,55 +1,66 @@
 .card {
-  display: flex; /* Flexbox for row layout */
-  background-color: var(--white);
-  border-radius: 16px;
-  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: row;
+  background-color: #F7F2EE;
+  border-radius: 15px;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
   overflow: hidden;
   transition: box-shadow 0.3s ease;
   cursor: pointer;
-  margin-bottom: 1em; /* Space between cards */
-  max-height: 300px;
+  width: 94%; 
+  max-width: 100%; 
+  height: auto;
+  margin-bottom: 20px;
+  margin-left: 20px;
+
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .imageContainer {
-  /* Fixed width for image container */
-  aspect-ratio: 4/3;
-  height: 100%; /* Fixed height for image */
-  flex: 1;
+  width: 40%;
+  height: auto; 
   overflow: hidden;
+  border-radius: 20px;
+  margin-right: 20px;
 }
 
 .image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-right: 2px solid var(--green); /* Divider between image and content */
 }
 
 .content {
-  padding: 1em;
+  padding: 0.8em;
   display: flex;
   flex-direction: column;
-  gap: 1em;
-  flex: 1;
+  width: 30%;
 }
 
 .title {
-  font-size: 1.5em;
-  margin-bottom: 0.5em;
-  margin-top: 0;
+  font-size: 1.2em;
   color: var(--text-color-dark);
 }
 
 .details {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  font-size: 0.9em;
+  color: var(--text-color-dark);
+}
 
-  gap: 0.5em;
-  margin-bottom: 1em;
+.locations {
+  margin-top: 40px;
+  padding-top: 20px;
+  height: 100px;
+  width: 30%;
+}
+
+.description {
+  margin-top: 30px;
+  width: 180%;
 }
 
 .difficulty,
@@ -57,37 +68,15 @@
 .age,
 .duration,
 .language,
-.genre {
-  margin: 0;
-  color: var(--text-color-dark);
+.genre  {
+  margin: 1px;
 }
 
-.description {
-  margin: 0.5em 0;
-  color: var(--text-color-dark);
-  font-size: 0.9em;
-}
-
-.locations {
-  flex: 1;
-  margin-top: 1em;
-  padding-top: 1em;
-  border-top: 1px solid var(--light-grey);
-}
-
-.locations h4 {
-  margin-bottom: 0.5em;
-  color: var(--text-color-dark);
-}
-
-.locations p {
-  margin: 0.25em 0;
-  color: var(--text-color-dark);
-  font-size: 0.9em;
-}
-
-.locationGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1em;
+@media (min-width: 600px) {
+  .cardContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 1rem;
+    justify-content: center;
+  }
 }

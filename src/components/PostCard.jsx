@@ -45,7 +45,9 @@ export default function PostCard({ post }) {
             <strong>Genre:</strong> {post.genre}
           </p>
         </div>
-        <p className={styles.description}>{post.body}</p>
+        <div className={styles.description}>
+          <p>{post.body}</p>
+      </div>
       </div>
       <div className={styles.locations}>
         <h4>Locations:</h4>
