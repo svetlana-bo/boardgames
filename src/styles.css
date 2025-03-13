@@ -3,12 +3,12 @@
 /* ---------- root variables ---------- */
 :root {
   --green: #b12924;
-  --light-green: #ede2d9;
+  --light-green: #ffffff;
   --light-grey: #f7f2ee;
-  --text-color-light: #f1f1f1;
+  --text-color-light: #F7F2EE;
   --text-color-dark: #292929;
   --text-color-danger: rgb(152, 58, 58);
-  --white: #f1f1f1;
+  --white: #ffffff;
 }
 
 body {
@@ -29,6 +29,7 @@ code {
 main {
   padding: 58px 0 0;
   background-color: var(--light-green);
+  margin-top: 50px;
 }
 
 h1 {
@@ -39,19 +40,28 @@ h1 {
 }
 
 h2 {
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.1px;
 }
 
 h3 {
   font-weight: 500;
   letter-spacing: 0.1px;
+
 }
 
 h4 {
   font-weight: 600;
   letter-spacing: 0.1px;
   margin: 0.5em 0 0;
+  color: #292929;
+
+}
+
+p {
+  margin: 5px;
+  font-size: 1em;
+
 }
 
 a {
@@ -121,6 +131,9 @@ nav a {
   text-decoration: none;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  border-radius: 10px;
+  margin: 10px;
+  width: 30%;
 }
 
 /* Change the color of links on hover */
@@ -145,6 +158,9 @@ nav a.active {
   gap: 1em;
   margin-bottom: 2em;
   flex-direction: wrap;
+  width: 97%;
+  margin-left: 20px;
+
 }
 
 .search-bar {
@@ -154,6 +170,7 @@ nav a.active {
   border-radius: 500px;
   font-family: "Poppins", sans-serif;
   height: fit-content;
+  background-color: #F7F2EE;
 }
 
 .filter-dropdown {
@@ -162,15 +179,15 @@ nav a.active {
   border: 2px solid var(--green);
   border-radius: 500px;
   font-family: "Poppins", sans-serif;
-  background-color: var(--white);
+  background-color: #F7F2EE;
   color: var(--text-color-dark);
   cursor: pointer;
   margin: 0;
 }
 
 .flex-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr)); /* Fixed to 2 columns */
   gap: 1em;
 }
 
