@@ -33,7 +33,7 @@ export default function HomePage() {
       false; // Null check for genre
 
     const matchesLanguage = languageFilter
-      ? post.language === languageFilter
+      ? post.languages?.includes(languageFilter.toLowerCase())
       : true;
 
     const matchesGenre = genreFilter ? post.genre === genreFilter : true;
@@ -56,7 +56,7 @@ export default function HomePage() {
   });
 
   // Get unique values for filters (language, genre, difficulty, cafes)
-  const uniqueLanguages = [...new Set(posts.map((post) => post.language))];
+  const uniqueLanguages = [...new Set(posts.map((post) => post.languages))];
   const uniqueGenres = [...new Set(posts.map((post) => post.genre))];
   const uniqueDifficulties = [...new Set(posts.map((post) => post.difficulty))];
   const cafes = ["Vestergade", "Fredensgade", "Aalborg", "Kolding"]; // List of cafes
@@ -80,11 +80,13 @@ export default function HomePage() {
           className="filter-dropdown"
         >
           <option value="">All Languages</option>
-          {uniqueLanguages.map((language) => (
-            <option key={language} value={language}>
-              {language}
-            </option>
-          ))}
+          {[...new Set(posts.flatMap((post) => post.languages || []))]
+            .filter((lang) => lang) // Remove empty values
+            .map((language) => (
+              <option key={language} value={language.toLowerCase()}>
+                {language.charAt(0).toUpperCase() + language.slice(1)}
+              </option>
+            ))}
         </select>
 
         {/* Filter by Genre */}
